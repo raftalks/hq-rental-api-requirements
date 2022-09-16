@@ -1,5 +1,34 @@
 # api-requirements
 
+
+
+## Requirements
+PHP 8.1 is required to run this application and you must have composer cli command available on your terminal.
+
+## Installation
+Please clone this repository to your development environment
+run ```composer install``` to install Laravel application dependencies
+run ```php artisan serve``` command to get the application to serve instantly
+open your browser or use whichever API client (Postman/Insominia) and try make a normal GET request to http://localhost:8000/api/products
+
+## Implementation details
+I have registered singleton instance of DiscountManager which is accessed through the facade class DiscountEngine to register all the
+discount rules as expected according to your instructions. You can see that inside the routes/api.php file.
+Once the discount engine rules are set, the inventory repository class is instantiated and it returns the products which under goes 
+through collection of DTOs (Data Transfer Objects) that goes through pipeline to apply price filter and apply discounts. The final result
+is returned as expected.
+
+#Note
+Here is a security concern that I wish to flag up for this project. I felt I should inform you that if every job applicant is suppose to fork
+your repository, it will kind of expose all those who have applied and their forks. I am worried, this can allow others to see the work 
+that was done. All forks are visible from this link:
+https://github.com/takumi-software/api-requirements/network/members
+
+
+
+
+
+BELOW IS COPY OF THE ORGINAL CONTENT OF THIS FILE FROM THE FORK
 ## Description
 We want you to implement a REST API endpoint that given a list of products, applies some
 discounts to them and can be filtered.
