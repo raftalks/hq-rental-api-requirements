@@ -6,9 +6,16 @@
 PHP 8.1 is required to run this application and you must have composer cli command available on your terminal.
 
 ## Installation
-Please clone this repository to your development environment
-run ```composer install``` to install Laravel application dependencies
-run ```php artisan serve``` command to get the application to serve instantly
+Please clone this repository to your development environment and open the path in your terminal.
+run the following commands
+```shell
+composer install 
+cp .env.example .env
+php artisan key:generate
+
+#command to get the application to serve instantly
+php artisan serve
+```
 open your browser or use whichever API client (Postman/Insominia) and try make a normal GET request to http://localhost:8000/api/products
 
 ## Implementation details
