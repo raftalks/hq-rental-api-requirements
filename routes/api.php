@@ -18,9 +18,8 @@ use Illuminate\Support\Facades\Route;
 //    return $request->user();
 //});
 
-
 // No api middelware set and this endpoint is accessible to public
-Route::get('/products', function () {
+Route::get('/products', function (Request $request) {
     /**
      * Here I have defined the discount rules into the discount engine.
      * This can be set dynamically from a config or discount rules taken
@@ -35,5 +34,7 @@ Route::get('/products', function () {
         ),
     ]);
 
-    return (new \App\Services\InventoryRepository())->getProducts();
+    $items = (new \App\Services\ProductRepository())->getProducts($request);
+
+    return (new \App\Services\InventoryRepository())->getProducts($items);
 });

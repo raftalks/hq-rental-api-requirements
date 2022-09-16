@@ -2,7 +2,6 @@
 
 namespace App\Services\DTO;
 
-use App\Services\Pipeline\FilterByPrice;
 use App\Services\Pipeline\RunDiscountEngine;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\DataPipeline;
@@ -23,7 +22,6 @@ class Product extends Data
         return DataPipeline::create()
             ->into(static::class)
             ->through(AuthorizedDataPipe::class)
-            ->through(FilterByPrice::class)
             ->through(RunDiscountEngine::class);
     }
 }

@@ -18,6 +18,14 @@ Once the discount engine rules are set, the inventory repository class is instan
 through collection of DTOs (Data Transfer Objects) that goes through pipeline to apply price filter and apply discounts. The final result
 is returned as expected.
 
+## Query Parameters
+Use ?price=XXXXX to filter matching price and the amount must be in integer form.
+Use ?category=XXXXX to filter matching product categories
+You can use both query parameters if needed.
+
+- Example:
+```http://localhost:8000/api/products?category=vehicle&price=250000```
+
 #Note
 Here is a security concern that I wish to flag up for this project. I felt I should inform you that if every job applicant is suppose to fork
 your repository, it will kind of expose all those who have applied and their forks. I am worried, this can allow others to see the work 
